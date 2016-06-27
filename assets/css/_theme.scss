@@ -1,0 +1,358 @@
+// Foundation Mods
+//--------------------------
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.column:last-child:not(:first-child), 
+.columns:last-child:not(:first-child) {
+	float: left!important;
+}
+.top-bar, .top-bar ul {
+
+	a, a:hover, a:focus { color: $dark-background-links; }
+}
+a:hover, a:focus { text-decoration: underline; }
+
+//cite a { font-weight: bold; }
+
+.button:hover, .button:focus { text-decoration: none; }
+
+.hide-small {
+	display: none;
+	@include breakpoint(medium) {
+		display: block;
+	}
+}
+.flex-row {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+// Header
+//--------------------------
+
+
+// Typography
+//--------------------------
+@include breakpoint(small only) {
+	h1 {
+		font-size: 1.75rem;
+	}
+	h2 {
+		font-size: 1.5rem;
+	}
+	h3 {
+		font-size: 1.25rem;
+	}
+	p {
+		margin-bottom: .5rem;
+	}
+}
+
+#education h4 {
+	@extend .subheader;
+	margin-bottom: 0;
+}
+
+.tag {
+	@include label;
+	background: $red;
+    color: $white;
+}
+.centered-list {
+	margin: 0;
+	text-align: center;
+
+	li {
+		display: inline-block;
+	}
+}
+ul.tags-list {
+	@extend .centered-list;
+	margin-bottom: 1rem;
+
+	li { 
+		@extend .tag; 
+	}
+}
+.header-group {
+	text-align: center;
+}
+
+
+
+// Containers
+//--------------------------
+section.row {
+	margin-bottom: 1rem;
+}
+.divider {
+	padding: 2rem 0rem;
+
+	@include breakpoint(medium) {
+		padding: 3.375rem 1.25rem;
+	}
+
+	&:nth-child(odd) {
+    	background: $dark-background;
+    	h1, h2, h3, h4, h5, h6, p, cite, label, small { 
+    		color: $dark-background-text; 
+
+    		&.subheader { @extend .subheader; }
+    	}
+    	//a { color: $dark-background-links; }
+	}
+
+	> header {
+	    margin-bottom: 1rem;
+	}
+}
+
+.hero {
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    height: 80vh;
+
+	.hero-inner {
+		@extend .flex-row;
+		align-items: center;
+		text-align: center;
+
+		padding: 1rem;
+		background-color: transparentize($dark-background, .2);
+		color: white;
+
+		@include breakpoint(medium) {
+	      padding: 4rem;
+	    }
+	    @include breakpoint(large) {
+	      padding: 8rem;
+	    }
+	}
+}
+.has-bg-gradient {
+	background: linear-gradient(linear-gradient(transparentize($white, 1), transparentize($dark-background, .5)));
+	height: 100%;
+	width: 100%;
+}
+
+
+// Components
+//--------------------------
+
+.portfolio-item {
+	padding-top: 2rem;
+    padding-bottom: 1rem;
+
+    .quick-stats {
+		text-align: center;
+	}
+
+	@include breakpoint(small only) {
+		> div {
+			padding-right: 0.625rem;
+			padding-left: 0.625rem;
+		}
+	}
+	@include breakpoint(medium) {
+		.stats-container {
+			display: flex;
+			flex-flow: row wrap;
+		}
+	}
+	@include breakpoint(medium only) {
+		.stats-container {
+			align-items: center;
+		}
+		&:nth-child(odd) {
+			.quick-stats {
+				order: 2;
+			}
+			.more-stats {
+				order: 1;
+			}
+		}
+	}
+	@include breakpoint(large) {
+		margin-bottom: 1rem;
+
+		.hover-overlay-large {
+			position: relative;
+		
+			.hover-content-large {
+				position: absolute;
+				top: 0; left: 0;
+			    height: 100%;
+			    width: 100%;
+			    //padding: 2rem 2.5rem;
+
+				/* Border with Animation --
+				---------------------------
+			    &::before, &::after {
+					position: absolute;
+			    	content: '';
+					opacity: 0;
+					top: 1rem;
+					bottom: 1rem;
+				    right: 1.5rem;
+				    left: 1.5rem;
+					-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+					transition: opacity 0.35s, transform 0.35s;
+			    }
+
+				&::before {
+					border-top: 1px solid $white;
+					border-bottom: 1px solid $white;
+					-webkit-transform: scale(0,1);
+					transform: scale(0,1);
+				}
+				&::after {
+					border-right: 1px solid $white;
+					border-left: 1px solid $white;
+					-webkit-transform: scale(1,0);
+					transform: scale(1,0);
+				}
+				*/
+			}
+			.before-transition {
+				opacity: 0;
+				-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+				transition: opacity 0.35s, transform 0.35s;
+			}
+			.stats-container {
+				@extend .before-transition;
+			    background: $dark-background;
+			    color: $dark-background-text;
+			    height: 100%;
+			    width: 100%;
+			    padding: 1rem;
+				margin: 0;
+				
+			}
+			.quick-stats {
+				@extend .before-transition;
+				-webkit-transform: translate3d(0,-20px,0);
+				transform: translate3d(0,-20px,0);
+				align-self: flex-end;
+				width: 100%;
+
+				p {
+		      		margin-bottom: 0.5rem;
+		      	}
+		      	h3 {
+		      		line-height: 1;
+	    			margin-bottom: 1rem;
+		      	}
+			}
+			.more-stats {
+				@extend .before-transition;
+				-webkit-transform: translate3d(0,20px,0);
+				transform: translate3d(0,20px,0);
+				align-self: flex-start;
+				width: 100%;
+
+				p:last-child, .button {
+					margin-bottom: 0;
+				}
+			}
+			.hover-background-color {
+				@extend .before-transition;
+				position: absolute;
+				top: 0;
+				left: .9375rem;
+				height: 100%;
+				width: calc(100% - 1.875rem);
+				background: $dark-background;
+			}
+			&:hover {
+				.hover-background-color {
+					opacity: 0.7;
+				}
+				.hover-content-large {
+					&::before, &::after {
+						opacity: 1;
+						-webkit-transform: scale(1);
+						transform: scale(1);
+					}
+				}
+				.stats-container {
+					opacity: 1;
+				}
+				.quick-stats, .more-stats {
+					display: block;
+					opacity: 1;
+					-webkit-transform: translate3d(0,0,0);
+					transform: translate3d(0,0,0);
+				}	
+			}
+		}
+	}
+}
+
+
+.portfolio-screenshots {
+	@extend .flex-row;
+	text-align: center;
+	@include breakpoint(medium down) {
+		margin-bottom: 1rem;
+	}
+	.column, .columns {
+
+		img {
+			width: 100%;
+		}
+		&:first-child {
+			margin-bottom: 1rem;
+			@include breakpoint(medium only) {
+				order: 2;
+				margin-bottom: 0;
+			}	
+		}
+		&:nth-child(2) {
+			@include breakpoint(small) {
+				padding-right: .3125rem;
+			}
+			@include breakpoint(medium only) {
+				padding-right: 0;
+				order: 1;
+			}	
+		}
+		&:last-child {
+			@include breakpoint(small) {
+				padding-left: .3125rem;
+			}
+			@include breakpoint(medium only) {
+				padding-left: 0;
+				order: 3;
+			}
+		}
+	}
+}
+
+// Nav
+//--------------------------
+.sticky {
+  width: 100%;
+}
+.sticky-container { }
+
+.menu {
+	.author-logo {
+		float: left;
+	}
+	.author-info {
+		float: left;
+		font-size: 1.5rem;
+	    padding-left: 0.25rem;
+	    color: white;
+
+		span {
+			display: block;
+		}
+	}
+}
+

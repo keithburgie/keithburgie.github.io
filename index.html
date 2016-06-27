@@ -1,0 +1,217 @@
+---
+layout: default
+title: Foundation - Jekyll
+base_url: "../../"
+---
+
+<section class="hero" style="background-image: url({{page.base_url}}assets/img/sfsu-sm.jpg)">
+  <div class="hero-inner has-bg-gradient">
+    <div class="row">
+      <div class="columns small-12 medium-10 medium-push-1 large-8 large-push-2">
+        <h1>Hi, I'm Keith.</h1>
+        <p class="lead">A front-end web developer specializing in mobile-first, responsive websites, emails and web applications using HTML5, CSS3 and JavaScript. Currently seeking opportunities in the San Francisco Bay Area.</p>
+        <ul class="tags-list">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>Foundation</li>
+          <li>Bootstrap</li>
+          <li>jQuery</li>
+          <li>Jekyll</li>
+          <li>Progressive Enhancement</li>
+          <li>Mobile-First</li>
+          <li>Media Queries</li>
+          <li>Scalability</li>
+          <li>Web Standards</li>
+          <li>SEO</li>
+          <li>Responsive Web Design</li>
+          <li>WordPress</li>
+          <li>Flexbox</li>
+          <li>Adobe Experience Manager</li>
+          <li>DNN</li>
+          <li>PSD to HTML</li>
+          <li>Content Management Systems</li>
+          <li>Google Analytics</li>
+          <li>Google Adwords</li>
+          <li>Online Marketing</li>
+          <li>Email Marketing</li>
+          <li>Sass</li>
+          <li>Git</li>
+          <li>Chrome Dev Tools</li>
+          <li>Adobe Creative Suite</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ~~~~~~~~~ Sticky Nav Bar  ~~~~~~~~~~~  -->
+
+
+<!-- ~~~~~~~~~ About Me & Photo  ~~~~~~~~~~~  -->
+
+  
+<!-- Main Portfolio -->
+<section id="portfolio" class="divider">
+
+  <header class="row text-center">
+    <div class="column">
+      <h2>Portfolio</h2>
+      <!-- <h3 class="subheader">Some kind of subheader.</h3> -->
+    </div>
+  </header>
+
+  <div class="row">
+    {% for project in site.portfolio-showcase reversed | sort: 'date' %}
+    {% unless page.published == false %}
+    <div class="column small-12 large-6 portfolio-item">
+      <div class="row hover-overlay-large">
+
+        <div class="small-12 column hover-background-large">
+          <div class="row portfolio-screenshots">
+            <div class="small-12 medium-6 large-12 column"><img class="lazyload" data-src="{{page.base_url}}assets/img/screenshots/{{project.alias}}-lg.jpg" alt="{{project.title}} Screenshot"></div>
+            <div class="small-6 medium-3 large-6 column"><img class="lazyload" data-src="{{page.base_url}}assets/img/screenshots/{{project.alias}}-sm-1.jpg" alt="{{project.title}} Screenshot"></div>
+            <div class="small-6 medium-3 large-6 column"><img class="lazyload" data-src="{{page.base_url}}assets/img/screenshots/{{project.alias}}-sm-2.jpg" alt="{{project.title}} Screenshot"></div>
+          </div>
+        </div>
+        
+        <div class="small-12 column hover-content-large">
+
+          <div class="row stats-container">
+
+            <div class="quick-stats column small-12 medium-6 large-12">
+              <h3>{{project.title}}</h3>
+              <p><strong>Project:</strong> {{project.type}}</p>
+              <p><strong>Client:</strong> {{project.client}}</p>
+              <p><strong>My Role:</strong> {{project.role}}</p>
+              <ul class="tags-list">{% for tag in project.tags %}<li>{{tag}}</li> {% endfor %}</ul>
+            </div>
+
+            <div class="more-stats hide-small column small-12 medium-6 large-12" id="about-{{project.alias}}" data-toggler=".hide-small">
+              {{project.content}}
+              <p><a class="large expanded button" href="{{project.website}}">Visit Site</a></p>
+            </div>
+            <div class="column small-12 hide-for-medium">
+              <p class="learn-more-button"><a class="button large expanded" data-toggle="about-{{project.alias}}">Learn More</a></p>
+            </div>
+
+          </div><!--/.stats-container-->
+
+        </div><!--/.column-->
+      </div><!--/.row-->
+    </div> <!--/.portfolio-item-->
+    {% endunless %}
+    {% endfor %}
+    </div><!--/.row-->
+
+    <!-- Secondary Portfolio (WordPress) -->
+    <!-- 
+    <div class="row flex-row">
+      {% for project in site.portfolio-secondary reversed | sort: 'date' %}
+      {% unless page.published == false %}
+        <div class="small-12 medium-4 column text-center">
+          <img src="{{page.base_url}}assets/img/screenshots/secondary/{{project.alias}}.jpg" alt="{{project.title}} Screenshot">
+          <h4>{{project.title}}</h4>
+          <p>{% for tag in project.tags %}<span class="tag">{{tag}}</span> {% endfor %}</p>
+        </div>
+      {% endunless %}
+      {% endfor %}
+      </div>
+      -->
+</section>
+
+
+<!-- Testimonials -->
+<section id="testimonials" class="divider">
+  <header class="row text-center">
+    <div class="column">
+      <h2>Kind Words</h2>
+      <!-- <h3 class="subheader">The nice things people have said.</h3> -->
+    </div>
+  </header>
+  <div class="row flex-row">
+    {% for quote in site.testimonials reversed | sort: 'date' %}
+    {% unless page.published == false %}
+      <div class="column small-12 medium-6 large-4">
+        <blockquote>
+          <p>{{quote.content}}</p>
+          <cite><a href="{{quote.linkedin}}" target="_blank">{{quote.author}}</a>, {{quote.info}}</cite>
+        </blockquote>
+      </div>
+    {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+
+<!-- Education -->
+<section id="education" class="divider">
+  <header class="row text-center">
+    <div class="column">
+      <h2>Education</h2>
+    </div>
+  </header>
+  <div class="row flex-row text-center">
+    <div class="column small-12 medium-6 large-4 large-push-2">
+      <h3>College Coursework</h3>
+      <h4>JavaScript Programming</h4>
+      <p>Harvard Extension School</p>
+      <h4>Programming Fundamentals</h4>
+      <p>York County Community College</p>
+      <h4>Bachelor of Arts</h4>
+      <p>University of Maine</p>
+    </div>
+    <div class="column small-12 medium-6 large-4 large-push-2">
+      <h3>Supplemental</h3>
+      <h4>An Event Apart Conference</h4>
+      <p>HTML5, CSS3, Mobile, UI &amp; UX</p>
+      <h4>Online Marketing Bootcamp</h4>
+      <p>Google Analytics, Adwords &amp; SEO</p>
+      <h4>DNN World Conference</h4>
+      <p>DotNetNuke 7.0 Introduction</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="divider">
+  <div class="row">
+
+    <div class="column small-12">
+      <ul class="menu centered-list">
+        <li><a class="" href="{{page.base_url}}assets/docs/keith_burgie_resume.pdf" target="_blank">View Resume</a></li>
+        <li><a class="" href="https://www.linkedin.com/in/keithburgie" target="_blank">LinkedIn</a></li>
+        <li><a class="" href="https://github.com/keithburgie" target="_blank">GitHub</a></li>
+        <li><a class="" href="mailto:krburgie@gmail.com">Email Me</a></li>
+      </ul>
+      
+    </div>
+
+    <!--
+    <div id="contactArea" class="column small-12 medium-6">
+      <form id="contactform" method="POST">
+        <div class="row">
+          <div class="small-12 medium-6 column">
+            <label>Your Name*
+              <input type="text" required placeholder="">
+            </label>
+          </div>
+          <div class="small-12 medium-6 column">
+            <label>Your Email*
+              <input type="email" name="_replyto" required placeholder="">
+            </label>
+          </div>
+          <div class="small-12 column">
+            <label>Your Message*
+              <textarea name="body" rows="6" required></textarea>
+            </label>
+            <button id="sendMessage" class="button" type="submit" value="Send">Send</button>
+            <small class="float-right">*Required</small>
+          </div>
+        </div>
+      </form>
+    </div>
+    -->
+
+  </div>
+</section>

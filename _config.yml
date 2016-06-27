@@ -1,0 +1,50 @@
+title:              Keith Burgie | Internet Pixel Pusher
+
+# Versioning
+current_version: 1.5.0
+foundation_version: 6.2.3
+
+# Dependencies
+markdown:           kramdown
+#Syntax Highlighter
+#highlighter:        pygments
+
+# Permalinks
+permalink:          pretty
+
+# Server
+source:             .
+destination:        ./_site
+
+port:               9003
+baseurl:            ""
+url:                baseurl
+
+collections:
+  - portfolio-showcase
+  - portfolio-secondary
+  - testimonials
+
+# exclude this stuff when building the static site
+exclude: [
+  '.gitignore',
+  'README.md',
+  'Gemfile',
+  'Gemfile.lock',
+]
+
+## CUSTOM VARS
+
+ga_id:              UA-13275488-14
+site_name:          Keith Burgie | Internet Pixel Pusher
+site_description :  Keith Burgie's front-end web development portfolio and other spectacular reasons to hire him.
+
+
+
+# Assets
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          ./assets/css
+  style:            :compressed
+
+
