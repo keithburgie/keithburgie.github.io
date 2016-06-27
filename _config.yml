@@ -21,8 +21,7 @@ baseurl:            ""
 url:                baseurl
 
 collections:
-  - portfolio-showcase
-  - portfolio-secondary
+  - portfolio
   - testimonials
 
 # exclude this stuff when building the static site
@@ -35,7 +34,6 @@ exclude: [
 
 ## CUSTOM VARS
 
-ga_id:              UA-13275488-14
 site_name:          Keith Burgie | Internet Pixel Pusher
 site_description :  Keith Burgie's front-end web development portfolio and other spectacular reasons to hire him.
 
@@ -44,7 +42,9 @@ site_description :  Keith Burgie's front-end web development portfolio and other
 # Assets
 # We specify the directory for Jekyll so we can use @imports.
 sass:
-  sass_dir:          ./assets/css
-  style:            :compressed
+  sass_dir:   ./assets/css
+  style:      :compressed
+
+minify_html:  true
 
 

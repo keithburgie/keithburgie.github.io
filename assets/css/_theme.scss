@@ -64,8 +64,10 @@ a:hover, a:focus { text-decoration: underline; }
 	margin: 0;
 	text-align: center;
 
-	li {
-		display: inline-block;
+	li { display: inline-block; }
+
+	@include breakpoint(small only) {
+		&.stack-mobile-list li {display: block;}
 	}
 }
 ul.tags-list {
@@ -74,8 +76,10 @@ ul.tags-list {
 
 	li { 
 		@extend .tag; 
+		margin-right: 3px;
 	}
 }
+
 .header-group {
 	text-align: center;
 }
@@ -101,7 +105,8 @@ section.row {
 
     		&.subheader { @extend .subheader; }
     	}
-    	//a { color: $dark-background-links; }
+    	a, a:visited { color: $dark-background-links; }
+    	a:hover, a:focus { color: $dark-background-links-hover; }
 	}
 
 	> header {

@@ -57,12 +57,33 @@ base_url: "../../"
   <header class="row text-center">
     <div class="column">
       <h2>Portfolio</h2>
-      <!-- <h3 class="subheader">Some kind of subheader.</h3> -->
     </div>
   </header>
 
+
+
   <div class="row">
-    {% for project in site.portfolio-showcase reversed | sort: 'date' %}
+
+    <!-- 
+    <div class="callout alert" data-closable>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <header class="row text-center">
+        <div class="column">
+          <h4>Head's up!</h4>
+          <h5 class="subheader">I heard you like portfolios, so this portfolio is part of my portfolio.</h5>
+          <p>Resize your browser window or <a href="http://responsivetest.net/#u=https://keithburgie.github.io/|1024|768|1" target="_blank">use this tool</a> to see the responsive layout; view the code on <a href="https://github.com/keithburgie/keithburgie.github.io" target="_blank">my GitHub page</a>, where the site is hosted; and <a href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkeithburgie.github.io%2F&tab=mobile" target="_blank">check out PageSpeed Insights</a>, where the site gets a perfect (100/100) score on User Experience, an 89/100 on Desktop speed, and a 72/100 on Mobile speed.</p>
+          <p>
+            Mobile <span class="success badge">87</span>
+            Desktop <span class="success badge">3</span>
+          </p>
+        </div>
+      </header>
+    </div>
+    -->
+
+    {% for project in site.portfolio reversed | sort: 'date' %}
     {% unless page.published == false %}
     <div class="column small-12 large-6 portfolio-item">
       <div class="row hover-overlay-large">
@@ -107,7 +128,7 @@ base_url: "../../"
     <!-- Secondary Portfolio (WordPress) -->
     <!-- 
     <div class="row flex-row">
-      {% for project in site.portfolio-secondary reversed | sort: 'date' %}
+      {% for project in site.portfolio.secondary reversed | sort: 'date' %}
       {% unless page.published == false %}
         <div class="small-12 medium-4 column text-center">
           <img src="{{page.base_url}}assets/img/screenshots/secondary/{{project.alias}}.jpg" alt="{{project.title}} Screenshot">
@@ -176,15 +197,13 @@ base_url: "../../"
 <!-- Contact -->
 <section id="contact" class="divider">
   <div class="row">
-
     <div class="column small-12">
-      <ul class="menu centered-list">
+      <ul class="menu centered-list stack-mobile-list">
         <li><a class="" href="{{page.base_url}}assets/docs/keith_burgie_resume.pdf" target="_blank">View Resume</a></li>
         <li><a class="" href="https://www.linkedin.com/in/keithburgie" target="_blank">LinkedIn</a></li>
         <li><a class="" href="https://github.com/keithburgie" target="_blank">GitHub</a></li>
         <li><a class="" href="mailto:krburgie@gmail.com">Email Me</a></li>
       </ul>
-      
     </div>
 
     <!--
