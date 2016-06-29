@@ -3,7 +3,7 @@ $(document).foundation().ready(function(){
 	
 	$('p.learn-more-button').click(function(e) {
 		e.preventDefault();
-		$(this).fadeOut('fast');
+		$(this).hide();
 		$(this).parent().prev().removeClass('hide-small');
 	});
 
