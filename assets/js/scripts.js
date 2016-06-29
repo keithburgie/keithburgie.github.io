@@ -1,7 +1,7 @@
 
 $(document).foundation().ready(function(){
 	
-	$('.learn-more-button').click(function(e) {
+	$('p.learn-more-button').click(function(e) {
 		e.preventDefault();
 		$(this).fadeOut();
 		$(this).parent().prev().removeClass('hide-small');
